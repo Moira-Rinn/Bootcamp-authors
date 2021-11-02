@@ -6,6 +6,7 @@ import { navigate } from '@reach/router';
 const AddAuthor = () => {
   const [authorList, setAuthorList] = useState([]);
   const [errors, setErrors] = useState([]);
+
   const addAuthor = (author) => {
     axios.post('http://localhost:8000/api/authors', author)
       .then(res => {
@@ -13,12 +14,11 @@ const AddAuthor = () => {
         navigate(`/authors`);
       })
       .catch(err => {
-        const errorResponse = err.response.data.errors; // Get the errors from err.response.data
-        const errorArr = []; // Define a temp error array to push the messages in
-        for (const key of Object.keys(errorResponse)) { // Loop through all errors and get the messages
+        const errorResponse = err.response.data.errors;
+        const errorArr = [];
+        for (const key of Object.keys(errorResponse)) {
           errorArr.push(errorResponse[key].message)
         }
-        // Set Errors
         setErrors(errorArr);
       })
   }

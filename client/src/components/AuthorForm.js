@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, navigate } from '@reach/router';
+import { Link } from '@reach/router';
 import { Button } from '@material-ui/core';
 
 const AuthorForm = (props) => {
@@ -12,7 +12,6 @@ const AuthorForm = (props) => {
     onSubmitProp({ authorFirstName, authorLastName });
     setAuthorFirstName(initialAuthorFirstName);
     setAuthorLastName(initialAuthorLastName);
-    // navigate(`/authors`);
   }
 
   return (
@@ -41,4 +40,5 @@ const AuthorForm = (props) => {
     </div>
   )
 }
+
 export default AuthorForm;

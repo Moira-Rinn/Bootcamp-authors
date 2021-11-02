@@ -1,11 +1,10 @@
 import './App.css';
 import React from 'react';
-import { Router, navigate } from '@reach/router';
+import { Router } from '@reach/router';
 import './App.css';
 import Main from './views/Main';
 import AddAuthor from './views/AddAuthor';
 import Update from './views/Update';
-
 
 function App() {
   // navigate(`/authors`);

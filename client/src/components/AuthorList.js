@@ -8,16 +8,10 @@ const AuthorList = (props) => {
   const { list, removeFromDom } = props;
 
   list.sort(function (a, b) {
-    var nameA = a.authorLastName.toUpperCase(); // ignore upper and lowercase
-    var nameB = b.authorLastName.toUpperCase(); // ignore upper and lowercase
-    if (nameA < nameB) {
-      return -1;
-    }
-    if (nameA > nameB) {
-      return 1;
-    }
-
-    // names must be equal
+    let nameA = a.authorLastName.toUpperCase();
+    let nameB = b.authorLastName.toUpperCase();
+    if (nameA < nameB) { return -1; }
+    if (nameA > nameB) { return 1; }
     return 0;
   });
 

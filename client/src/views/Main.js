@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import AuthorForm from '../components/AuthorForm';
 import AuthorList from '../components/AuthorList';
 
 const Main = () => {
@@ -17,26 +16,12 @@ const Main = () => {
       .catch(err => console.log(err));
   }, []);
 
-  // const addAuthor = author => {
-  //   axios.post('http://localhost:8000/api/authors', author)
-  //     .then(res => {
-  //       setAuthorList([...authorList, res.data])
-  //     })
-  //     .catch(err => console.log("this is the...", err));
-  // }
-
   const removeFromDom = id => {
     setAuthorList(authorList.filter(author => author._id !== id));
   }
 
   return (
     <div>
-      {/* <AuthorForm
-        onSubmitProp={addAuthor}
-        initialAuthorFirstName={""}
-        initialAuthorLastName={""}
-      /> */}
-
       {
         loaded && <AuthorList
           list={authorList}

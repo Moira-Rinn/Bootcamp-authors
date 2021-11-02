@@ -29,17 +29,6 @@ module.exports = {
       .catch(err => res.status(400).json(err))
   },
 
-
-  // create: (req, res) => {
-  //   const { authorFirstName, authorLastName } = req.body;
-  //   Author.create({
-  //     authorFirstName: authorFirstName,
-  //     authorLastName: authorLastName
-  //   })
-  //     .then(author => res.json(author))
-  //     .catch(err => res.status(400).json(err))
-  // },
-
   deleteAuthor: (req, res) => {
     Author.deleteOne({ _id: req.params.id })
       .then((deletedAuthor) => {
