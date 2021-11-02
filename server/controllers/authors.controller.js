@@ -26,10 +26,19 @@ module.exports = {
         console.log(newAuthor);
         res.json(newAuthor);
       })
-      .catch((err) => {
-        console.log(err);
-      })
+      .catch(err => res.status(400).json(err))
   },
+
+
+  // create: (req, res) => {
+  //   const { authorFirstName, authorLastName } = req.body;
+  //   Author.create({
+  //     authorFirstName: authorFirstName,
+  //     authorLastName: authorLastName
+  //   })
+  //     .then(author => res.json(author))
+  //     .catch(err => res.status(400).json(err))
+  // },
 
   deleteAuthor: (req, res) => {
     Author.deleteOne({ _id: req.params.id })
@@ -47,6 +56,6 @@ module.exports = {
       { new: true, runValidators: true }
     )
       .then((updatedAuthor) => res.json(updatedAuthor))
-      .catch((err) => console.log(err))
+      .catch(err => res.status(400).json(err))
   }
 }

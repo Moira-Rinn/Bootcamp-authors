@@ -7,6 +7,20 @@ import { Card, CardContent } from '@material-ui/core';
 const AuthorList = (props) => {
   const { list, removeFromDom } = props;
 
+  list.sort(function (a, b) {
+    var nameA = a.authorLastName.toUpperCase(); // ignore upper and lowercase
+    var nameB = b.authorLastName.toUpperCase(); // ignore upper and lowercase
+    if (nameA < nameB) {
+      return -1;
+    }
+    if (nameA > nameB) {
+      return 1;
+    }
+
+    // names must be equal
+    return 0;
+  });
+
   return (
     <div>
       <div>
@@ -20,7 +34,7 @@ const AuthorList = (props) => {
                 {/* <p>ID: <Link to={`/authors/${author._id}`}>{author._id}</Link></p> */}
                 <p>Author Name: <Link to={`/authors/${author._id}`}>{author.authorFirstName} {author.authorLastName}</Link></p>
                 <DeleteBtn id={author._id} successCallback={() => removeFromDom(author._id)} />
-                <Link to={`/products/${author._id}/edit`}>
+                <Link to={`/authors/${author._id}/edit`}>
                   <Button variant='outlined' size='small' > Edit </Button>
                 </Link>
               </CardContent>

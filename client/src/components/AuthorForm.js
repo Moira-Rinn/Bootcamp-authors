@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from '@reach/router';
+import { Link, navigate } from '@reach/router';
 import { Button } from '@material-ui/core';
 
 const AuthorForm = (props) => {
@@ -12,15 +12,15 @@ const AuthorForm = (props) => {
     onSubmitProp({ authorFirstName, authorLastName });
     setAuthorFirstName(initialAuthorFirstName);
     setAuthorLastName(initialAuthorLastName);
+    // navigate(`/authors`);
   }
 
   return (
     <div>
-      <h1>New Author:</h1>
       <form onSubmit={onSubmitHandler}>
 
         <p>
-          <label>Author Fist Name</label><br />
+          <label>Author First Name</label><br />
           <input type="text"
             name="AuthorFirstName"
             value={authorFirstName}
