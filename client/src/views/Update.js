@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import { navigate } from '@reach/router';
 import AuthorForm from '../components/AuthorForm';
-import DeleteBtn from '../components/DeleteBtn';
 
 const Update = (props) => {
   const { id } = props;
@@ -44,11 +43,9 @@ const Update = (props) => {
           onSubmitProp={updateAuthor}
           initialAuthorFirstName={author.authorFirstName}
           initialAuthorLastName={author.authorLastName}
+          id={id}
         />
-
       )}
-
-      <DeleteBtn id={id} successCallback={() => navigate(`/authors`)} />
     </div>
   )
 }

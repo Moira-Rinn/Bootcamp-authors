@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import AuthorForm from '../components/AuthorForm';
 import { navigate } from '@reach/router';
+import { makeStyles } from '@material-ui/core/styles';
+import { Card } from '@material-ui/core';
 
 const AddAuthor = () => {
   const [authorList, setAuthorList] = useState([]);
@@ -23,16 +25,33 @@ const AddAuthor = () => {
       })
   }
 
+  const useStyles = makeStyles((theme) => ({
+    container: {
+      textAlign: 'left',
+      backgroundColor: '#eadaf2',
+      padding: theme.spacing(1),
+      borderRadius: '5px'
+    },
+    txtColor: {
+      padding: '10px',
+      margin: '10px',
+      color: '#29002e',
+    }
+  }));
+
+  const classes = useStyles();
+  const { txtColor, container } = classes;
+
   return (
-    <div>
-      <h1>New Author:</h1>
+    <Card className={container}>
+      <h2 className={txtColor}>Add New Author:</h2>
       {errors.map((err, index) => <p key={index}>{err}</p>)}
       <AuthorForm
         onSubmitProp={addAuthor}
         initialAuthorFirstName={""}
         initialAuthorLastName={""}
       />
-    </div>
+    </Card>
   )
 }
 

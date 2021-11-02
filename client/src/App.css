@@ -4,7 +4,10 @@
   box-sizing: border-box;
 }
 body {
-  padding: 20px;
-  margin: 20px;
+  display: flex;
+  justify-content:space-evenly;
+  align-items: center;
   text-align: center;
+  background-color: #eadaf2;
+  margin: 75px 25px;
 }

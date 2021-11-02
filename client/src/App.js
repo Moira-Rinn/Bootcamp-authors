@@ -1,15 +1,16 @@
 import './App.css';
 import React from 'react';
-import { Router } from '@reach/router';
+import { Router, navigate } from '@reach/router';
 import './App.css';
 import Main from './views/Main';
 import AddAuthor from './views/AddAuthor';
 import Update from './views/Update';
 
 function App() {
-  // navigate(`/authors`);
+  navigate(`/authors`);
+
   return (
-    <div className="App">
+    <div className={"App"}>
       <Router>
         <Main path='/authors' />
         <AddAuthor path='/authors/add' />

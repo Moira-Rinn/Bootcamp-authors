@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import AuthorList from '../components/AuthorList';
+import { makeStyles } from '@material-ui/core/styles';
 
 const Main = () => {
   const [authorList, setAuthorList] = useState([]);
@@ -20,8 +21,21 @@ const Main = () => {
     setAuthorList(authorList.filter(author => author._id !== id));
   }
 
+  const useStyles = makeStyles((theme) => ({
+    card: {
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      backgroundColor: '#d7a8e6',
+      margin: theme.spacing(1),
+      borderRadius: '10px'
+    }
+  }));
+
+  const classes = useStyles();
+
   return (
-    <div>
+    <div className={classes.card}>
       {
         loaded && <AuthorList
           list={authorList}
